@@ -1,0 +1,205 @@
+﻿Troomie
+(A Roommate Finder Application)
+
+
+By: Raaghav Wadhawan Advisor: Dr. Lin December 9, 2022
+
+
+
+
+Table of Contents
+1. Abstract	3
+2. Introduction	3
+3. Background	3
+4. Requirements & Specifications 4 -	5
+5. Constraints 5 -	6
+6. Design 6 -	9
+7. Standards	10
+8. Integration	11
+9. Conclusion	11
+10. References	12
+
+
+Abstract:
+The Troomie Application is an iOS application which will assist individual renters/tenants in finding housemates to live with. This application will utilize Swift and SwiftUI to create a
+unique swiping and matching system which allows users to look through a list of potential housemates. A swipe to the left or right will approve or disapprove the potential housemate. If both users approve one another they will be matched and subsequently given the ability to chat in the messaging portion of the application. The swiping screen will display the home and its qualities, as well as, the tenants who reside in that home and their likes/dislikes. This application is mainly targeted towards college students and young adults. Troomie can be especially useful for students whose housemates are graduating/moving out after the lease ends, but one or two
+people still would like to rent out the house. Troomie allows those users to find the perfect match for their new housemates and avoid problems down the road.
+
+Introduction:
+In the world we live in today, one in four Americans deal with mental health problems.[6] This can stem from a wide range of things including one's social life and living situation. Troomie
+seeks to mitigate unwanted social interactions in your everyday life/living space. Using Troomie, users will be matched with each other based on their likes, dislikes, location, and personality in order to assure a healthy living situation and create healthy and positive relationships which will hopefully last a lifetime.
+
+Background:
+Troomie is a one of a kind application which is a combination of traditional house-searching
+apps/forums and multiple popular dating apps such as Tinder and Bumble[REF]. When creating your profile on Troomie, the user is suggested to submit multiple things about themselves such as their hobbies/interests, career choices, and personalities/physical preferences. The particular questions we will ask each user to submit are based on research done through surveys with
+college students, as well as, essential features of the home and tenant. This may include, number of rooms & bathrooms, square footage of the home, and rent for the home. For the tenant, the
+features include, age, gender, and occupation. While there are applications such as facebook
+groups and Bumble BFF to find people to live with, the Troomie application allows for users to
+see homes and tenants at the same time, while giving the user an extensive insight into where and who they may live with/at. The application is made with the IDE Xcode native to Mac and iOS products. The application user interface is created with SwiftUI and programmed in Swift.
+
+
+
+Requirements and Specifications:
+A. First look - Login:
+a. The first screen is the login screen prompting the user to input his/her email and password. If the user does not have an account, there is an option to create a new account by clicking "Sign up" at the bottom of the screen. There is also a "forget password" option.
+B. Sign Up:
+a. When the user is creating a new account in the sign up screen, he/she will be prompted to submit mandatory inputs such as email, password, birthday, city, gender.
+b. The user must input a valid email as well as a password with capital letters, numbers, eight characters, and a special character.
+c. The user must verify his/her email in order to proceed into the application.
+d. Once the user has created an account, the user will be prompted to the main matching screen, where the user can navigate to the messages, profile, confirmed match list, and matching screen.
+C. Profile Screen:
+a. The profile screen must show the user, and his/her information such as avatar, about section, name, age, city of residency, etc.
+b. This section has buttons which allow you to edit your profile contents such as about section, name, etc. There is a button to change your profile picture/avatar. There is a button to log out of your account.
+c. The user can specify the age ranges he/she would like to search for on this screen as well. The user can set them from minimum to maximum.
+D. Matching Screen:
+a. Once the user has created an account and profile, the user will be prompted to the matching screen where he/she can swipe left(disapprove) or right(approve) in order to approve/disapprove their potential housemate.
+b. Will use a card system, to display homes, and people living in those homes.
+c. An animation will be shown for both approving and disapproving particular people.
+d. Users will be shown "cards" or potential housemates based on their location and age & gender preferences.[4]
+e. The matching screen of people looking to gain a housemate will look different than those looking for a new home to live in.
+f. The User card will be the home and its Size (ex: 3bed 2bath). Once the user taps into the user, they will be able to see more information about the house and the more information about the person soliciting the house.
+
+g. All cards will display potential housemate(s) and his/her expectations/information.
+
+E. Messaging:
+a. Once two users get matched, either user is able to use the messaging functionality of the application in order to get in contact with the other user.
+b. On the initial screen of the messaging functionality, the matches you have not yet chatted with will be displayed on the top, while the users you have chatted with will be displayed under this in a messaging application fashion(vertical line).
+c. The messaging functionality will only be available through people who matched with one another.
+d. The messaging functionality will allow users to send pictures and videos
+e. At the top of the message string, there will be a direct "link" to view the property and its cards.
+F. Technology Used:
+a. Software:
+i. Xcode
+ii. Swift UI
+iii. Programmed in Swift
+b. Design/Wireframes:
+i. Fimga
+c. Hosting:
+i. Firebase[1]
+d. Testing:
+i. TestFlight
+Constraints:
+e. Accessibility:
+i. Troomie will be (initially) an iOS application. This is a constraint due to the fact that 80% of people in the world who have a phone, have an Android phone. However, this application will first launch in the USA in which 47% of the population uses Apple/iOS phones.[3]
+f. Knowledge/Time:
+i. One disadvantage I have while making this application is that I am doing this project alone. I have to work on all aspects of the application from User design to backend programming, causing me to have a spend much more time on each aspect in comparison to a normal project.
+g. Marketability:
+i. There are many applications/websites/companies who are in the business of property management and allocation. Troomie will be competing with the likes of multi billion dollar companies such as Zillow and Redfin[2].
+
+However, Troomie has features which these applications do not which will give it a competitive advantage in the industry/marketplace.
+
+Design(code design and ui design):
+Project Management Timeline:
+
+a. Landlord/tenant research: research which features the users of the app need/will want included in the application.
+b. Application Functions: Compile a list of functional and nonfunctional requirements for the application.
+c. Layout Design: Lay out a design for the application. Use figma and hand drawings for designs.
+d. Application Design/Programming: Program the Application in Swift UI.
+
+e. Databases/Web Hosting/Testing: Host application on iOS platform. Test application using Test Flight.
+Preliminary Work:
+As shown in the Gantt Chart as well as the Project Management Timeline, the first step in creating the application is to do research on the user(landlords/tenants/homes). This will allow insight into what attributes we can get from the user. In the tenants case, the research was done on what someone is looking for in a housemate/friend. The questions that will be asked of the tenant-user are based on the user's hobbies/interests, career choices, and personalities/physical preferences. For landlords and tenants looking for a new housemate, the questions will be based on the property and its features.
+The data that was gathered suggests that the attributes that student tenants are interested in looking at when considering living with a new person are: The person's age, gender, hobbies, and their sanitary preferences (cleanliness, scheduled cleaning, third party cleaning). Some of these attributes have been incorporated within the Troomie application such as age and gender, while others have yet to be added in this version of the application. However, the Troomie application does have an area for users to input all other attributes which he/she would like to
+include such as hobbies, social preferences, and cleanliness. This area is the about section where users have the ability to not only describe the attributes of the house which they are soliciting but also their own traits.
+
+
+
+Application Functions:
+The Troomie application was deemed to have one MAIN function, to be able to introduce and match like minded individuals for the reason of living together in shared housing, and through this creating a seamless and stressless living environment. The design functions of the Troomie application include having a card system which allows users to like or dislike other users, having a matching screen allowing users to view their matched "partners", and having a messaging screen which allows users to communicate with their matched partners.
+
+The first iterations of the application design were created by hand then translated to wireframe
+images using the Figma platform. Figma allowed for me to determine the flow of the application and create a general schematic of where each button leads to and Screen by Screen animation/design.
+
+The Front-End of the application was created in the Xcode IDE using SwiftUI. SwiftUI utilizes a drag and drop system which allows programmers to customize and design specific user
+interfaces for an IOS application. Each screen was created with this methodology, and each subsequent screen was created via the "View Controller'' tool in SwiftUI. This means that each screen (matching screen, Home screen, etc) has its own view controller. Each view controller is linked to a "ViewController.swift" file where the actual actions of each screen are programmed. This includes all objects within the view controller (Screen View), which ranges from buttons, labels, text fields, backgrounds, etc.
+
+A. Login Screen:
+The Login screen consists of two text boxes used to input the already registered and authenticated user's account email and password. Once those text fields are inserted, The user will click the "login" button which will transfer them into the actual application
+where they are then able to match with other users. If the user attempts to login with an invalid email or password, an error message pop up will be prompted suggesting that the user has inputted invalid credentials. If the user forgot his/her password, there is a "Forget password" button which allows the user to input his/her email and receive an email which gives him/her the ability to reset the account password. If the user does not have an account, there is a "sign up" button on the bottom of the screen which takes the user directly to the "Sign up Screen". If the user logs into an account on a certain device, the application will auto login to that account whenever the application is reopened. This was done creating an autologin() function utilizing the "Auth" object within the Firebase imported class.
+
+B. Sign up Screen:
+The Sign Up screen consists of six textboxes which prompt the user to input his/her name, email, password,confirm password, and date of birth. There is also a switch button used to input the user's gender. The switch button can switch from "male' to "female".
+The date of birth text box does not take input as a string rather it uses a scroll wheel type interface in order to input the user's birthdate. The datepicker used was one which is
+native to iOS applications and was included with Xcode. Once all the user data is filled in, the user will click the "Register" button. If any of the data is missing or invalid, an error message pop up will be shown on the screen directly letting the user know which of the inputs was invalid. For example, if there is missing data, the pop up will show "All
+fields must be inputted". The error handling includes things like invalid email addresses and passwords which do not match. If the user inputs correct information, the user will be prompted back to the login screen where there will be a pop up informing the user that his/her email must be verified in order to login to the application. The email verification
+is done through Firebase. All users will be authenticated and registered within Firebase
+
+C. Profile Screen:
+Once logged into the application the user is able to navigate the bottom toolbar and select the main matching screen, the confirmed matches screen, the messaging screen, or the
+profile screen. In the profile screen the user is able to view and edit their profile contents such as their avatar, age, city of residence, about section, work & education, and pick the age range from which they would like to search for. At the top of the screen there will be your avatar image displayed as well as three buttons under the image. Those three buttons are to change image, edit profile contents, and log out of the account. When either the edit profile or change avatar button is clicked, the code is prompted to look at the authenticated user object and change its contents. Such changes will be reflected within
+the Firebase database created. The UI for changing the avatar or profile picture is done through the use of a third party "Gallery" class.
+
+D. Messaging Screen
+In the messaging screen the user is able to chat with other matched users. There is a
+"New Matches" section on the top portraying the user's matches which he/she has not spoken with yet. Under this section, there is the actual "Messages" section where the user can see his/her previous and current messages with the other matched user. Each user container will show the matched user's name and the last message sent in that specific chat. It also shows the time the last message was sent. All this data is logged into and kept track of by creating a Firebase database. Once the user clicks on any matched user,
+the user will be prompted with the previous message thread. The user is able to send
+messages and attachments such as pictures. All variables will be stored in a dictionary in the Messages class. The user will be informed when the other matched user has read
+
+his/her message. This is done by creating a function, markMessageAsRead(), which tracks whether or not the user has opened a specific chat or not through utilizing the
+chatID within the message dictionary. A third party "MKMessage" class was imported to assist with the creation of the messaging functionality. The UI for the attachments is done through the use of a third party "Gallery" class.
+
+E. Matching Screen
+The matching screen is the main screen/functionality of the application. In this screen users are shown other user profiles. There is a card on the screen which includes other user's profile and contents. The user is able to click into the card and examine each
+profile. If the user is interested in the specific property, he/she will swipe right in order to like the profile. If the user is uninterested in the property, the user will swipe left in order to dislike the profile. If two users both swipe right on each other, they will be matched and their profiles will be shown in the confirmed matches screen. Once a user swipes left or right on a profile, he/she will never be able to see that user again unless they match.
+This is done through creating a profileID which is stored in the FUser class dictionary. If there are no users in the area, an image will be shown stating " Searching for users...
+Please wait". All user profiles will be stored within the Firebase database, as stated before. A third party "Shuffle" framework was used for the UI integration of the swiping method.
+
+F. Confirmed Matches(Likes) Screen
+The confirmed matches screen portrays all of the matches that users have gotten. This means that if two users both "like"/approve each other, they will each respectively be
+shown on the screen. Each liked user will be portrayed in a list containing individual cells of individual users. If the user clicks on a particular cell, the user profile who is in that cell will appear. From there the user can look at the contents of that profile as well as
+dislike that certain profile if needed.
+
+
+
+Standards:
+"Standards are published documents that establish technical specifications and procedures designed to maximize the reliability of the materials, products, methods, and/or services people use every day."[8] Some of the standards which were used in the application include:
+IEEE/ISO/IEC 29119-2-2021: This document specifies test processes that can be used to govern, manage and implement software testing for any organization, project or testing activity. It
+comprises generic test process descriptions that define the software testing processes. Supporting informative diagrams describing the processes are also provided. This document is applicable to testing in all software development lifecycle models. This document is intended for, but not limited to, testers, test managers, developers and project managers, particularly those responsible
+
+for governing, managing and implementing software testing.[7] As the lead software developer, I implemented manual testing throughout the process of building the application. Whether that be utilizing Firebase to create test accounts/objects or using the Xcode debugging methods, such as breakpoints, to figure out where in the code is an error. In the future I will be uploading the application to testflight and allow targeted users, college students and young adults, to test basic and advanced functions within the application, as well as give general feedback for the application.
+IEEE 1711-2010: A cryptographic protocol to provide integrity, and optional confidentiality, for cyber security of serial links is defined in this trial use standard. Specific applications or
+hardware implementations are not addressed, and the standard is independent of the underlying communications protocol.[7] A high level of confidentiality and security are emphasized with the Troomie application. The Firebase database is utilized not only for its data storing and
+hosting properties but also its ability to protect users from not only other hackers but from myself as the application owner. I am not able to see any user's passwords within the database. Troomie also does not want to include any fake or bot accounts, so measures such as verifying a user's email were implemented.
+IEEE / ISO / IEC 26514-2021: This document covers the development process for designers and developers of information for users of software. It describes how to establish what information
+users need, how to determine the way in which that information should be presented, and how to prepare the information and make it available. It is not limited to the design and development
+stage of the life cycle, but includes information on design throughout the life cycle, such as design strategy and maintaining a design. This document provides requirements for the structure, information content, and format of information for users of software. This document can be applied to developing the following types of information, although it does not cover all aspects of them: - information for users of products other than software; - multimedia systems using animation, video, and sound; - computer-based training (CBT) packages and specialized course materials intended primarily for use in formal training programs; - maintenance information describing the internal operation of systems software; - information for users incorporated into
+the user interface itself. This document is applicable to information architects and information developers, including a variety of specialists: - information architects who plan the structure and format of information products; - usability specialists and business analysts who identify the
+tasks that the intended users can perform with the software; - developers and editors of the written content of information for users.[7] This standard was utilized heavily in the preliminary planning of the application. Before jumping into the user interface, I went out and spoke with a handful of college students, landlords, and tenants about the struggles they have had with finding places to live or renting out their properties. This allowed me to get a general idea of what
+utilities to include within the Troomie application. Some things I discovered which I implemented are: that people want to know someone's age when searching for a housemate, people want to be able to easily communicate with their potential housemate, and that people would like to know the person's occupation. All these features and more are included in the Troomie application.
+
+
+Integration:
+Testing of application functions was done alongside the development of the application.
+Databases were created as they were needed which allowed me to test specific elements such as login, register, and matches. In order to test the login functionality, once the login screen was
+made and linked to the Firebase Database, within firebase, I authenticated a dummy account. I then used that account to log in and was pleased to see that, the program had pushed me to the homepage of the application. In order to test the register functionality, I tried registering with
+multiple different errors such as invalid entries, missing entries, and not equal passwords. While testing all these types of errors, I was shown different pop up messages portraying different types of errors in my inputs, similar to what a user would see if he/she made the same mistakes. Along with this, if correct information was inputted, the register function within the code forces users to authenticate their emails through an email verification system enabled within Firebase. Once I verified the email I was able to log in and move on to the homescreen as well as see all the user info(name,age, email) in the Firebase database. These same methodologies were used to test the matches screen as well as the messaging screen. Whenever I would run into successful builds which were not working the way I would like, I would utilize the breakpoints functionality built into Xcode. This would allow me to see specifically where the errors in my code were.
+
+Future Testing:
+During the future testing of the application, I will be using the application, Testflight, in order to test the functionalities of the Troomie application. TestFlight is an online service for over-the-air installation and testing of mobile applications, currently owned by Apple Inc and only offered to developers within the iOS Developer Program. Testflight allows me to let a group of testers or
+users use the application simultaneously and remotely, allowing for greater and broader feedback. I will use Testflight to test the specific functionalities of the application as well as make sure that all the aesthetics are the same on all iOS devices as what I have created in
+SwiftUI[5]. Testing of functionality will be done through manually testing each function in the application. I will keep track of the bugs I find within the application through a project management software called Asana. The testing of the application will hopefully be done with a lot of people/college students as it can be helpful to have multiple sets of eyes on the application[5].
+
+Conclusion:
+With the population increasing at an exponential rate, and less and less free space available to reside in, the housing market is getting to all time highs. This combined with the high rates of mental health problems in the world is what will allow Troomie to flourish. Troomie is able to match and allow communication to users throughout the country. Troomie will assist users to find places to live while keeping their mental health and social relationships strong. This will hopefully make long lasting impacts and friendships/partnerships.
+
+References:
+
+[1] G. Albertengo, F. G. Debele, W. Hassan, and D. Stramandino, "On the performance of Web Services, google cloud messaging and firebase cloud messaging," Digital Communications and Networks, 25-Feb-2019. [Online]. Available:
+https://www.sciencedirect.com/science/article/pii/S235286481830035X. [Accessed: 05-May-2022].
+
+[2] Q. Yang, X. Luo, P. Li, T. Miyazaki, W. Shen, and W. Tong, "Cooperation of Mobile Devices for Fast Inference of Deep Learning Applications," Mobile Networks and Applications, Aug. 2019, doi: 10.1007/s11036-019-01345-0.
+
+[3] K. W. Tracy, "Mobile Application Development Experiences on Apple's iOS and Android OS," in IEEE Potentials, vol. 31, no. 4, pp. 30-34, July-Aug. 2012, doi: 10.1109/MPOT.2011.2182571.
+
+[4] Giunchiglia, F., Yatskevich, M., Shvaiko, P. (2007). Semantic Matching: Algorithms and Implementation. In: , et al. Journal on Data Semantics IX. Lecture Notes in Computer Science, vol 4601. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-540-74987-5_
+
+[5] Kulesovs, Ivans. "iOS Applications Testing." ENVIRONMENT. TECHNOLOGIES. RESOURCES. Proceedings of the International Scientific and Practical Conference [Online], 3 (2015): 138-150. Web. 6 May. 2022
+
+[6] Pedrelli, P., Nyer, M., Yeung, A. et al. College Students: Mental Health Problems and Treatment Considerations. Acad Psychiatry 39, 503-511 (2015). https://doi.org/10.1007/s40596-014-0205-9
+
+[7] "Software & Systems Engineering Standards," IEEE Standards Association,
+Jun-2021. [Online]. Available: standards.ieee.org/tag/software-and-systems-engineering/. [Accessed: 05-May-2022].
+
+[8] "What Are Standards? Why Are They Important?" IEEE Standards Association, Jun-2021. [Online]. Available: beyondstandards.ieee.org/what-are-standards-why-are- they-important/. [Accessed: 05-May-2022].
+
+
