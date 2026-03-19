@@ -11,12 +11,16 @@ interface MatchState {
   confirmedMatches: Match[];
   currentIndex: number;
   isLoading: boolean;
+  loading: boolean;
   newMatch: Match | null; // For "It's a Match!" modal
 
   // Actions
   loadPotentialMatches: (uid: string, prefs: { ageMin: number; ageMax: number; genderPreference: string[] }) => Promise<void>;
+  fetchPotentialMatches: () => Promise<void>;
   swipe: (uid: string, targetUid: string, direction: 'left' | 'right') => Promise<void>;
+  recordSwipe: (targetUid: string, direction: 'left' | 'right') => Promise<void>;
   subscribeMatches: (uid: string) => () => void;
+  fetchConfirmedMatches: () => Promise<void>;
   unmatchUser: (matchId: string) => Promise<void>;
   dismissMatchModal: () => void;
 }
@@ -26,16 +30,22 @@ export const useMatchStore = create<MatchState>((set, get) => ({
   confirmedMatches: [],
   currentIndex: 0,
   isLoading: false,
+  loading: false,
   newMatch: null,
 
   loadPotentialMatches: async (uid, prefs) => {
-    set({ isLoading: true });
+    set({ isLoading: true, loading: true });
     try {
       const matches = await getPotentialMatches(uid, prefs);
-      set({ potentialMatches: matches, currentIndex: 0, isLoading: false });
+      set({ potentialMatches: matches, currentIndex: 0, isLoading: false, loading: false });
     } catch {
-      set({ isLoading: false });
+      set({ isLoading: false, loading: false });
     }
+  },
+
+  fetchPotentialMatches: async () => {
+    // Stub implementation - would need current user context
+    set({ loading: false });
   },
 
   swipe: async (uid, targetUid, direction) => {
@@ -51,6 +61,10 @@ export const useMatchStore = create<MatchState>((set, get) => ({
     }
   },
 
+  recordSwipe: async (targetUid, direction) => {
+    // Stub implementation - would need current user context
+  },
+
   subscribeMatches: (uid) => {
     const unsubscribe = subscribeToMatches(uid, async (matches) => {
       // Enrich matches with other user profile
@@ -64,6 +78,11 @@ export const useMatchStore = create<MatchState>((set, get) => ({
       set({ confirmedMatches: enriched });
     });
     return unsubscribe;
+  },
+
+  fetchConfirmedMatches: async () => {
+    // Stub implementation - would need current user context
+    set({ loading: false });
   },
 
   unmatchUser: async (matchId) => {

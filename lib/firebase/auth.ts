@@ -44,3 +44,6 @@ export const subscribeToAuth = (callback: (user: User | null) => void) => {
 export const getCurrentUser = () => auth.currentUser;
 
 export const isEmailVerified = () => auth.currentUser?.emailVerified ?? false;
+
+// Re-export signOut for direct usage
+export { signOut };
