@@ -10,12 +10,17 @@ import { uploadChatAttachment } from '../lib/firebase/storage';
 interface ChatState {
   conversations: Conversation[];
   activeMessages: ChatMessage[];
+  messages: ChatMessage[];
   isLoading: boolean;
+  loading: boolean;
 
   // Actions
   buildConversations: (matches: Match[], currentUid: string) => void;
+  fetchConversations: () => Promise<void>;
   subscribeToChat: (chatId: string) => () => void;
+  fetchMessages: (chatId: string) => Promise<void>;
   sendTextMessage: (chatId: string, senderId: string, text: string) => Promise<void>;
+  sendMessage: (chatId: string, text: string) => Promise<void>;
   sendMediaMessage: (chatId: string, senderId: string, uri: string, type: 'image' | 'video') => Promise<void>;
   markAsRead: (chatId: string, userId: string) => Promise<void>;
 }
@@ -23,7 +28,9 @@ interface ChatState {
 export const useChatStore = create<ChatState>((set) => ({
   conversations: [],
   activeMessages: [],
+  messages: [],
   isLoading: false,
+  loading: false,
 
   buildConversations: (matches, currentUid) => {
     const convos: Conversation[] = matches.map((match) => ({
@@ -37,12 +44,22 @@ export const useChatStore = create<ChatState>((set) => ({
     set({ conversations: convos });
   },
 
+  fetchConversations: async () => {
+    // Stub implementation - would need current user context
+    set({ loading: false });
+  },
+
   subscribeToChat: (chatId) => {
-    set({ isLoading: true });
+    set({ isLoading: true, loading: true });
     const unsubscribe = subscribeToChatMessages(chatId, (messages) => {
-      set({ activeMessages: messages, isLoading: false });
+      set({ activeMessages: messages, messages, isLoading: false, loading: false });
     });
     return unsubscribe;
+  },
+
+  fetchMessages: async (chatId) => {
+    // Stub implementation
+    set({ loading: false });
   },
 
   sendTextMessage: async (chatId, senderId, text) => {
@@ -51,6 +68,10 @@ export const useChatStore = create<ChatState>((set) => ({
       text,
       read: false,
     });
+  },
+
+  sendMessage: async (chatId, text) => {
+    // Stub implementation - would need current user context
   },
 
   sendMediaMessage: async (chatId, senderId, uri, type) => {

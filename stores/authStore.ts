@@ -21,6 +21,8 @@ interface AuthState {
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (data: SignUpFormData) => Promise<void>;
   signOut: () => Promise<void>;
+  setUser: (user: UserProfile) => void;
+  clearUser: () => void;
   resetPassword: (email: string) => Promise<void>;
   resendVerification: () => Promise<void>;
   checkVerification: () => Promise<boolean>;
@@ -149,6 +151,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await firebaseSignOut();
     set({ user: null, firebaseUser: null, isAuthenticated: false, isLoading: false });
   },
+
+  setUser: (user) => set({ user }),
+
+  clearUser: () => set({ user: null, firebaseUser: null, isAuthenticated: false }),
 
   resetPassword: async (email) => {
     set({ error: null });

@@ -14,15 +14,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Colors, FontSize, BorderRadius, Spacing } from '../../constants/theme';
 
 interface ButtonProps {
-  title: string;
+  title?: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
+  loading?: boolean;
   disabled?: boolean;
   style?: ViewStyle;
   textStyle?: TextStyle;
   icon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function Button({
@@ -31,11 +33,14 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   isLoading = false,
+  loading = false,
   disabled = false,
   style,
   textStyle,
   icon,
+  children,
 }: ButtonProps) {
+  const isLoadingState = isLoading || loading;
   const sizeStyles = {
     sm: { paddingVertical: Spacing.sm, paddingHorizontal: Spacing.lg, fontSize: FontSize.sm },
     md: { paddingVertical: Spacing.md + 2, paddingHorizontal: Spacing.xl, fontSize: FontSize.base },
@@ -44,22 +49,28 @@ export default function Button({
 
   const content = (
     <>
-      {isLoading ? (
+      {isLoadingState ? (
         <ActivityIndicator color={variant === 'outline' || variant === 'ghost' ? Colors.primary : '#FFF'} />
       ) : (
         <>
-          {icon && <>{icon}</>}
-          <Text
-            style={[
-              styles.text,
-              { fontSize: sizeStyles[size].fontSize },
-              variant === 'outline' && styles.textOutline,
-              variant === 'ghost' && styles.textGhost,
-              textStyle,
-            ]}
-          >
-            {title}
-          </Text>
+          {children ? (
+            children
+          ) : (
+            <>
+              {icon && <>{icon}</>}
+              <Text
+                style={[
+                  styles.text,
+                  { fontSize: sizeStyles[size].fontSize },
+                  variant === 'outline' && styles.textOutline,
+                  variant === 'ghost' && styles.textGhost,
+                  textStyle,
+                ]}
+              >
+                {title}
+              </Text>
+            </>
+          )}
         </>
       )}
     </>
@@ -69,7 +80,7 @@ export default function Button({
     return (
       <TouchableOpacity
         onPress={onPress}
-        disabled={disabled || isLoading}
+        disabled={disabled || isLoadingState}
         activeOpacity={0.8}
         style={[{ borderRadius: BorderRadius.lg, overflow: 'hidden', opacity: disabled ? 0.5 : 1 }, style]}
       >
@@ -94,7 +105,7 @@ export default function Button({
   return (
     <TouchableOpacity
       onPress={onPress}
-      disabled={disabled || isLoading}
+      disabled={disabled || isLoadingState}
       activeOpacity={0.7}
       style={[
         styles.button,
